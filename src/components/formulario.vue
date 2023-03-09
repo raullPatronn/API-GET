@@ -40,7 +40,7 @@ console.log(response.status)
 		</div>
 		<br>
 		<div>
-			<btnn class="bg-cyan-800 boton text-white hover:-translate-y-1 hover:scale-110 duration-300 hover:bg-orange-500">Enviar Formulario</btnn>
+		<btnn class="bg-cyan-800 boton text-white hover:-translate-y-1 hover:scale-110 duration-300 hover:bg-orange-500">Enviar Formulario</btnn>
 		</div>
 	</form>
 </div>
