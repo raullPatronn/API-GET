@@ -5,17 +5,17 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <template>
   <header class="wrapper bg-teal-800 border border-black h-14">
-    <img alt="Vue logo" class="logo" src="@/assets/google.png" width="30" height="30" style="margin: 5px;" />
+  <img alt="Vue logo" class="logo" src="@/assets/isclab.png" width="200" height="30" style="margin: 5px;" />
 
     <div>
 
       <nav class="navv" style="margin: 5px;">
         <RouterLink to="/"><p class="hover:text-teal-200 text-white">Índice</p></RouterLink>
         <RouterLink to="/about"><p class="hover:text-teal-200 text-white">Formulario</p></RouterLink>
+        <RouterLink to="/personas"><p class="hover:text-teal-200 text-white">Ver Registros</p></RouterLink>
       </nav>
 
     </div>
-
   </header>
 
   <RouterView />
