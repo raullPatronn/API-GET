@@ -1,8 +1,15 @@
 <script>
+import caja from '../components/InputsText.vue';
+import textar from '../components/textarea.vue'
+import slider from '../components/InputSlider.vue';
 import axios from "axios";
 let API_URL = "/api/guardarPersonasUxd.php";
 
 export default {
+components:{
+caja,textar,slider
+  },
+  emits: ['person','data','testa'],
   data() {
     return {
       nombre: "",
@@ -26,6 +33,46 @@ export default {
   },
 
   methods: {
+
+    nombreyapellido(s){
+this.nombre=s;
+      },
+work(s){
+this.trabajo=s;
+      },
+resi(s){
+this.residencia=s;
+      },
+citas(s){
+this.cita=s;
+      },
+citass(s){
+this.citaAutor=s;
+      },
+biog(s){
+this.bio=s;
+      },
+object(s){
+this.objetivos=s;
+      },
+frustra(s){
+this.frustraciones=s;
+      },
+slider1(s){
+this.personalidad01=s;
+      },
+slider2(s){
+this.personalidad02=s;
+      },
+slider3(s){
+this.personalidad03=s;
+      },
+slider4(s){
+this.personalidad04=s;
+      },
+motiv(s){
+this.motivaciones=s;
+      },
     submit() {
       axios
         .post(API_URL, {
@@ -69,7 +116,7 @@ export default {
 
           <div class="">
             <label for="nombre" class="block mb-2 text-sm font-medium  dark:text-white mt-7"><p class="text-black">Nombre y Apellido</p></label>
-            <input v-model="nombre" type="text" placeholder="Raul Patron" class="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0 bg-teal-100 inn"/>
+             <caja @data="nombreyapellido"></caja>
           </div>
 
           <div class="mt-7">
@@ -87,173 +134,77 @@ export default {
             <option value="5">Union libre</option>
             <option value="6">Viudo</option>
           </select>
+          <div class="mt-7">
+            <label for="trabajo" class="block mb-2 text-sm font-medium text-black dark:text-white mt-7"><p class="text-black">Trabajo</p></label>
+            <caja @data="work"></caja>
+        </div> 
 
           <div class="mt-7">
             <label for="residencia" class="block mb-2 text-sm font-medium text-black dark:text-white mt-7"
               ><p class="text-black">Residencia</p></label>
-            <input v-model="residencia" type="text" placeholder="Residencia" class="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0 bg-teal-100 inn"/>
+              <caja @data="resi"></caja>
           </div>
 
-          <div class="mt-7">
-            <label
-              for="trabajo"
-              class="block mb-2 text-sm font-medium text-black dark:text-white mt-7"
-              ><p class="text-black">Trabajo</p></label
-            >
-            <input
-              v-model="trabajo"
-              type="text"
-              placeholder="Trabajo"
-              class="mt-1 block w-full border-none text-black h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0 bg-teal-100 inn"/>
+           
 
-        </div>  
-
-          <div class="mt-7">
-            <label
-              for="cita"
-              class="block mb-2 text-sm font-medium text-black dark:text-white mt-7"
-              ><p class="text-black">Cita</p></label
-            >
-            <textarea
-              v-model="cita"
-              type="text"
-              class="mt-1 block w-full border-none text-black h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0 bg-teal-100 inn"
-            ></textarea>
-          </div>
-
-          <div class="mt-7">
-            <label
-              for="citaAutor"
-              class="block mb-2 text-sm font-medium text-black dark:text-white mt-7"
-              ><p class="text-black">Cita Autor</p></label
-            >
-            <textarea
-              v-model="citaAutor"
-              type="text"
-              class="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0 bg-teal-100 inn"
-            ></textarea>
-          </div>
-          <div class="mt-7">
-            <label
-              for="bio"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-7"
-              ><p class="text-black">Biografía</p></label
-            >
-            <textarea
-              v-model="bio"
-              type="text"
-              class="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0 bg-teal-100 inn"
-            ></textarea>
-          </div>
+          
        
 
     
           <div class="mt-7">
-            <label
-              for="objetivos"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-7"
-              ><p class="text-black">Objetivos</p></label
-            >
-            <input
-              v-model="objetivos"
-              type="text"
-              placeholder="Escribe objetivos"
-              class="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0 bg-teal-100 inn"
-            />
+            <label for="objetivos" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-7"><p class="text-black">Objetivos</p></label>
+            <caja @data="object"></caja>
           </div>
        
 
           <div class="mt-7">
-            <label
-              for="frustraciones"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-7"
-              ><p class="text-black">Frustaciones</p></label
-            >
-            <input
-              v-model="frustraciones"
-              type="text"
-              placeholder="Escribe frustraciones"
-              class="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0 bg-teal-100 inn"/>
+            <label for="frustraciones" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-7"><p class="text-black">Frustaciones</p></label>
+            <caja @data="frustra"></caja>
           </div>
             </div>
 <div class="Datos2">
-          <div class="mt-7">
-            <label
-              for="personalidad01"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-7"
-              ><p class="text-black">Personalidad 1</p></label
-            >
-            <input
-              v-model="personalidad01"
-              type="range"
-              min="0"
-              max="100"
-              class="mt-1 block w-full border-none  bg-blue-600 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0 bg-teal-100 "
-            />
+          <div class="mt-7 slider">
+          <label for="personalidad01" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-7"><p class="text-black">Personalidad 1</p></label>
+            <slider @person="slider1"></slider>
             <span>{{ this.personalidad01 }}%</span>
           </div>
 
-          <div class="mt-7">
-            <label
-              for="personalidad02"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-7"
-              ><p class="text-black">Personalidad 2</p></label
-            >
-            <input
-              v-model="personalidad02"
-              type="range"
-              min="0"
-              max="100"
-              class="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0 bg-teal-100"
-              
-              />
+          <div class="mt-7 slider">
+            <label for="personalidad02" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-7"><p class="text-black">Personalidad 2</p></label>
+                <slider @person="slider2"></slider>
               <span>{{ this.personalidad02 }}%</span>
           </div>
 
-          <div class="mt-7">
-            <label
-              for="personalidad03"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-7"
-              ><p class="text-black">Personalidad 3</p></label
-            >
-            <input
-              v-model="personalidad03"
-              type="range"
-              min="0"
-              max="100"
-              class="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0 bg-teal-100"
-            />
+          <div class="mt-7 slider">
+            <label for="personalidad03" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-7"><p class="text-black">Personalidad 3</p></label>
+              <slider @person="slider3"></slider>
             <span>{{ this.personalidad03 }}%</span>
           </div>
 
-          <div class="mt-7">
-            <label
-              for="personalidad04"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-7"
-              ><p class="text-black">Personalidad 4</p></label
-            >
-            <input
-              v-model="personalidad04"
-              type="range"
-              min="0"
-              max="100"
-              class="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0 bg-teal-100 bg-teal-100"
-            />
+          <div class="mt-7 slider">
+          <label for="personalidad04" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-7"><p class="text-black">Personalidad 4</p></label>
+             <slider @person="slider4"></slider>
             <span>{{ this.personalidad04 }}%</span>
           </div>
-          <div></div>
+         
+        </div>
+          <div class="mt-7">
+            <label for="motivaciones" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-7"><p class="text-black">Motivaciones</p></label>
+            <caja @data="motiv"></caja>
+          </div>
+          <div class="mt-7">
+            <label for="cita" class="block mb-2 text-sm font-medium text-black dark:text-white mt-7"><p class="text-black">Cita</p></label>
+            <textar @testa="citas"></textar>
+          </div>
 
           <div class="mt-7">
-            <label
-              for="motivaciones"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-7"
-              ><p class="text-black">Motivaciones</p></label
-            >
-            <input
-              v-model="motivaciones"
-              type="text"
-              placeholder="Escribe motivaciones"
-              class="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0 bg-teal-100 inn"/>
+            <label for="citaAutor" class="block mb-2 text-sm font-medium text-black dark:text-white mt-7"><p class="text-black">Cita Autor</p></label>
+            <textar @testa="citass"></textar>
+          </div>
+
+           <div class="mt-7">
+            <label for="bio" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-7"><p class="text-black">Biografía</p></label>
+            <textar @testa="biog"></textar>
           </div>
 
           <div class="mt-7">
@@ -286,17 +237,23 @@ export default {
               Registrar
             </button>
           </div>
-        </div>
+        
         </form>
       </div>
     </div>
   </div>
 </template>
 <style type="text/css">
-  .Datos, .Datos2{
+  .Datos{
     display: inline-block;
     padding: 5px;
   }
+   .Datos2{
+    display: flex;
+   }
+   .slider{
+    margin: 0px 10px 0px 5px;
+   }
   .inn{
     text-align: center;
   }
