@@ -18,7 +18,7 @@ export default {
     <div>
         <slot></slot> ({{ slider }}%)
         <br>
-        <input type="range" class="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0 bg-teal-100 " min="0" max="100" v-model="slider" @change="enviar">
+        <input type="range" class="mt-1 block w-full border-none bg-teal-800 h-11 rounded-xl shadow-lg hover:bg-teal-800 focus:bg-teal-800 focus:ring-0 bg-teal-100 " min="0" max="100" v-model="slider" @change="enviar">
 
     </div>
 </template>
